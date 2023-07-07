@@ -1,7 +1,7 @@
 
 ## Overview
 
-This project is a unique blend of AI and database technologies. Leveraging TypeScript, JavaScript, and the OpenAI API, we've created an intelligent chatbot for a web application. The primary goal is to allow users to input prompts to the chatbot, which will interpret the prompts and generate corresponding SQL queries. This simplifies the process of writing complex SQL queries and can prove beneficial for both beginners and professionals by increasing productivity and efficiency.
+This project is a unique blend of AI and database technologies. Leveraging TypeScript, JavaScript, and the OpenAI API, I've created an intelligent chatbot for a web application. The primary goal is to allow users to input prompts to the chatbot, which will interpret the prompts and generate corresponding SQL queries. This simplifies the process of writing complex SQL queries and can prove beneficial for both beginners and professionals by increasing productivity and efficiency.
 
 ## Code Structure
 
@@ -9,7 +9,7 @@ The application is based on React and encompasses both frontend and backend comp
 
 ### App.tsx
 
-`App.tsx` is the main file of this application. It is a React component that manages the state of user messages and chat data. It also contains methods for handling API interactions and controlling chat functionalities.
+`App.tsx` is the main file of this application. It is a React component written in TypeScript that manages the state of user messages and chat data. It also contains methods for handling API interactions and controlling chat functionalities.
 
 Here's a brief overview of the key elements in `App.tsx`:
 
