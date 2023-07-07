@@ -1,46 +1,48 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This project is a unique blend of AI and database technologies. Leveraging TypeScript, JavaScript, and the OpenAI API, we've created an intelligent chatbot for a web application. The primary goal is to allow users to input prompts to the chatbot, which will interpret the prompts and generate corresponding SQL queries. This simplifies the process of writing complex SQL queries and can prove beneficial for both beginners and professionals by increasing productivity and efficiency.
 
-In the project directory, you can run:
+## Code Structure
 
-### `npm start`
+The application is based on React and encompasses both frontend and backend components.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### App.tsx
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`App.tsx` is the main file of this application. It is a React component that manages the state of user messages and chat data. It also contains methods for handling API interactions and controlling chat functionalities.
 
-### `npm test`
+Here's a brief overview of the key elements in `App.tsx`:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### States:
 
-### `npm run build`
+- `value`: Holds the current value of the input field.
+- `chat`: Contains an array of chat messages. Each message is an object that includes `role` and `content`. `role` can be "user" or "assistant", while `content` contains the message text.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Methods:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `getQuery`: An async function that sends a POST request to the local server at `http://localhost:8000/completions`. The user's message forms the body of the request. After the request, it updates the `chat` state with the user's message and the API's response.
+- `clearChat`: Clears the chat and the input field by resetting the `value` and `chat` states.
+- `filteredUserMessages`: Contains an array of user messages filtered from the `chat` state.
+- `latestCode`: Contains the latest message from the assistant.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Components:
 
-### `npm run eject`
+- `MessagesDisplay`: A component that renders the user messages.
+- `CodeDisplay`: A component that displays the latest code (SQL Query) provided by the assistant.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Running the Application Locally
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run the application locally, ensure `npm` is installed. The frontend and backend can be started by executing the following commands:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm run start:frontend
+npm run start:backend
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The frontend will run on http://localhost:3000 and the backend server will operate on http://localhost:8000. After both servers are up and running, visit http://localhost:3000 in the web browser to start interacting with the chatbot.
 
-## Learn More
+Note: The OpenAI API key and other configurations must be correctly set in the backend code for the application to operate correctly. Remember, always keep your API keys secure and avoid exposing them in the frontend code or version control systems.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Further Development:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Future development could include enhanced error handling, particularly for the getQuery function, to provide more robust user feedback when an API call fails. Additionally, consider adding more functionalities to handle diverse API responses, expanding beyond the generation of SQL queries.
